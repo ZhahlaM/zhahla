@@ -101,12 +101,6 @@
     font-variation-settings: "opsz" 144;
     max-width: 14ch;
   }
-  .intro-foot {
-    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end;
-    margin-top: clamp(28px, 4vw, 48px);
-  }
-  .intro-foot p { max-width: 52ch; color: var(--ink-soft); font-size: 1.2rem; }
-  @media (max-width: 640px) { .intro-foot { grid-template-columns: 1fr; } }
 
   /* ---------- Sections ---------- */
   section { padding-block: clamp(56px, 9vw, 112px); }
@@ -135,18 +129,16 @@
   .f-wood   { grid-column: 1 / -1; }
   .f-wood button { aspect-ratio: 1125 / 746; }
   .f-canal  { grid-column: 1 / span 5; grid-row: 2; }
-  .f-bridge { grid-column: 7 / span 6; grid-row: 2 / span 2; margin-top: clamp(0px, 12vw, 160px); }
+  .f-bridge { grid-column: 7 / span 6; grid-row: 2; margin-top: clamp(0px, 12vw, 160px); }
   .f-canal button, .f-bridge button { aspect-ratio: 3 / 4; }
-  .gallery-note { grid-column: 1 / span 5; grid-row: 3; align-self: start; color: var(--ink-soft); font-style: italic; max-width: 34ch; }
   @media (max-width: 720px) {
-    .f-canal, .f-bridge, .gallery-note { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+    .f-canal, .f-bridge { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
   }
 
   /* ---------- Kitchen ---------- */
   .kitchen { background: var(--clay-soft); border-top: 0 !important; }
-  .kitchen-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
-  @media (max-width: 800px) { .kitchen-grid { grid-template-columns: 1fr; } }
-  .kitchen p.lede { margin-top: 20px; max-width: 46ch; font-size: 1.2rem; }
+  .kitchen h2 { font-size: clamp(2.6rem, 7vw, 5rem); }
+  .kitchen p.lede { margin-top: 12px; font-size: 1.2rem; color: var(--ink-soft); }
   .kitchen-links { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 32px; align-items: center; }
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
@@ -159,52 +151,22 @@
   .btn-quiet { background: transparent; color: var(--ink); padding-inline: 4px; }
   .btn-quiet:hover { color: var(--clay); filter: none; }
 
-  /* A recipe-card for the cookbook, drawn in type */
-  .recipe-card {
-    background: var(--paper); padding: clamp(24px, 3.5vw, 40px);
-    border: 1px solid var(--rule); border-radius: 4px;
-    transform: rotate(1.2deg);
-    box-shadow: 0 1px 0 var(--rule), 0 18px 40px -24px rgba(60, 30, 10, 0.35);
-  }
-  .recipe-card h3 { font-size: 1.75rem; font-style: italic; margin-top: 8px; }
-  .recipe-card .meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-block: 14px 18px; }
-  .recipe-card ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-  .recipe-card li {
-    display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 12px;
-    padding-block: 8px; border-bottom: 1px dotted var(--rule); font-size: 1rem;
-  }
-  .recipe-card li span:first-child { font-family: var(--mono); font-size: 0.85rem; color: var(--clay); font-variant-numeric: tabular-nums; padding-top: 2px; }
-  @media (prefers-reduced-motion: no-preference) {
-    .recipe-card { transition: transform 0.5s ease; }
-    .recipe-card:hover { transform: rotate(0deg); }
-  }
-
   /* ---------- Work ---------- */
   .work-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
   .work-list li {
-    display: grid; grid-template-columns: 9rem minmax(0, 1.2fr) minmax(0, 1.6fr); gap: 8px 32px;
-    padding-block: 24px; border-bottom: 1px solid var(--rule); align-items: baseline;
+    display: grid; grid-template-columns: 9rem minmax(0, 1fr) auto; gap: 4px 32px;
+    padding-block: 22px; border-bottom: 1px solid var(--rule); align-items: baseline;
   }
   .work-list .when { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
   .work-list h3 { font-size: 1.5rem; line-height: 1.2; }
-  .work-list h3 small { display: block; font-family: var(--serif-body); font-size: 1rem; font-style: italic; color: var(--ink-soft); margin-top: 4px; }
-  .work-list p { color: var(--ink-soft); }
+  .work-list .org { font-style: italic; color: var(--ink-soft); }
   @media (max-width: 760px) { .work-list li { grid-template-columns: 1fr; } }
 
   /* ---------- About ---------- */
-  .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(32px, 6vw, 96px); }
+  .about-grid { display: grid; align-items: baseline; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(32px, 6vw, 96px); }
   @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
-  .about-copy { display: grid; gap: 1.1em; max-width: 60ch; font-size: 1.2rem; }
-  .about-copy p:first-child::first-letter {
-    font-family: var(--serif-display); float: left; font-size: 3.6em; line-height: 0.85;
-    padding: 0.06em 0.1em 0 0; color: var(--clay);
-  }
-  .facts { margin: 32px 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 24px; }
-  .facts dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); padding-top: 4px; }
-  .facts dd { margin: 0; }
-
+  .about-copy { max-width: 52ch; font-size: 1.3rem; line-height: 1.55; }
   /* ---------- Contact ---------- */
-  .contact h2 { max-width: 16ch; }
   .contact-row { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; margin-top: 32px; }
   .email {
     font-family: var(--serif-display); font-size: clamp(1.4rem, 3.4vw, 2.25rem); font-style: italic;
@@ -247,11 +209,7 @@
   </header>
 
   <div class="intro">
-    <h1>I take photographs, cook for people, and <em>make things</em> in between.</h1>
-    <div class="intro-foot">
-      <p>This is where I keep all of it: photographs from walks along the canal and through the woods, recipes from my kitchen, and the projects and roles I've worked on.</p>
-      <span class="label">Photography · Cooking · Work</span>
-    </div>
+    <h1>Photographs, food, and <em>the work in between.</em></h1>
   </div>
 </div>
 
@@ -259,123 +217,78 @@
   <!-- PHOTOGRAPHY -->
   <section id="photography" class="wrap" aria-labelledby="photo-h">
     <div class="section-head">
-      <h2 id="photo-h">Photography, <em>mostly outdoors</em></h2>
-      <span class="label">3 frames · film &amp; phone</span>
+      <h2 id="photo-h">Photography</h2>
+      <a class="label" href="https://www.instagram.com/imnotapicaholic/" target="_blank" rel="noopener">@imnotapicaholic ↗</a>
     </div>
 
     <div class="gallery">
       <figure class="frame f-wood">
-        <button type="button" data-index="0" aria-label="View Woodland, midsummer larger">
+        <button type="button" aria-label="View Woodland larger">
           <img src="images/woodland.jpg" alt="Sunlit clearing in an old oak wood, a pale trunk leaning across long green grass and small tree stumps" width="1125" height="746">
         </button>
-        <figcaption><span class="title">Woodland, midsummer</span><span class="label">Fr. 01 · 35mm film</span></figcaption>
+        <figcaption><span class="title">Woodland</span><span class="label">35mm film</span></figcaption>
       </figure>
 
       <figure class="frame f-canal">
-        <button type="button" data-index="1" aria-label="View Reflections, October larger">
+        <button type="button" aria-label="View Reflections larger">
           <img src="images/canal-reflection.jpg" alt="A bicycle reflected in dark canal water beside a moored boat, with autumn leaves floating on the surface" width="1500" height="2000" loading="lazy">
         </button>
-        <figcaption><span class="title">Reflections, October</span><span class="label">Fr. 02 · Phone</span></figcaption>
+        <figcaption><span class="title">Reflections</span><span class="label">Phone</span></figcaption>
       </figure>
 
       <figure class="frame f-bridge">
-        <button type="button" data-index="2" aria-label="View Under the bridge larger">
+        <button type="button" aria-label="View Under the bridge larger">
           <img src="images/under-the-bridge.jpg" alt="Canal towpath seen through sticker-covered railings, with warm light on the brick arch of a bridge" width="1500" height="2000" loading="lazy">
         </button>
-        <figcaption><span class="title">Under the bridge</span><span class="label">Fr. 03 · Phone</span></figcaption>
+        <figcaption><span class="title">Under the bridge</span><span class="label">Phone</span></figcaption>
       </figure>
-
-      <p class="gallery-note">Light through trees, leaves on water, the orange glow under a bridge at dusk. Select any photograph to see it full size.</p>
     </div>
   </section>
 
   <!-- KITCHEN -->
   <section id="kitchen" class="kitchen" aria-labelledby="kitchen-h">
-    <div class="wrap kitchen-grid">
-      <div>
-        <span class="label">The kitchen</span>
-        <h2 id="kitchen-h" style="margin-top:12px">A cookbook, <em>written slowly</em></h2>
-        <p class="lede">Recipes I cook again and again, written down so other people can make them too. Seasonal food, mostly vegetables, and plenty of bread.</p>
-        <div class="kitchen-links">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read the cookbook <span aria-hidden="true">→</span></a>
-          <a class="btn btn-quiet" href="https://instagram.com/" target="_blank" rel="noopener">@yourkitchen on Instagram <span aria-hidden="true">↗</span></a>
-        </div>
+    <div class="wrap">
+      <span class="label">The kitchen</span>
+      <h2 id="kitchen-h" style="margin-top:12px"><em>Nosh-e-Jaan</em></h2>
+      <p class="lede">My cookbook.</p>
+      <div class="kitchen-links">
+        <a class="btn" href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Open the cookbook <span aria-hidden="true">→</span></a>
+        <a class="btn btn-quiet" href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan <span aria-hidden="true">↗</span></a>
       </div>
-
-      <article class="recipe-card" aria-label="Sample recipe from the cookbook">
-        <span class="label">No. 14 · Autumn</span>
-        <h3>Roast squash, brown butter &amp; sage</h3>
-        <div class="meta">
-          <span class="label">Serves 4</span>
-          <span class="label">Oven 200°C</span>
-          <span class="label">50 min</span>
-        </div>
-        <ul>
-          <li><span>1 medium</span><span>butternut squash, in wedges</span></li>
-          <li><span>60 g</span><span>unsalted butter</span></li>
-          <li><span>12 leaves</span><span>fresh sage</span></li>
-          <li><span>2 tbsp</span><span>toasted hazelnuts, crushed</span></li>
-        </ul>
-      </article>
     </div>
   </section>
 
   <!-- WORK -->
   <section id="work" class="wrap" aria-labelledby="work-h">
     <div class="section-head">
-      <h2 id="work-h">Selected <em>work</em></h2>
-      <span class="label">Roles &amp; projects</span>
+      <h2 id="work-h">Work</h2>
     </div>
     <ol class="work-list">
-      <li>
-        <span class="when">2025 – now</span>
-        <h3>Project or role title<small>Organisation name</small></h3>
-        <p>One or two sentences about what you did and what came of it. Add a link to the project if there is one.</p>
-      </li>
-      <li>
-        <span class="when">2023 – 2025</span>
-        <h3>Another role<small>Organisation name</small></h3>
-        <p>What you were responsible for, who you worked with, and a result you're proud of.</p>
-      </li>
-      <li>
-        <span class="when">2022</span>
-        <h3>Side project<small>Independent</small></h3>
-        <p>A personal project, collaboration or exhibition. Short and specific works best here.</p>
-      </li>
+      <li><span class="when">2025 – now</span><h3>Role or project title</h3><span class="org">Organisation</span></li>
+      <li><span class="when">2023 – 2025</span><h3>Another role</h3><span class="org">Organisation</span></li>
+      <li><span class="when">2022</span><h3>Side project</h3><span class="org">Independent</span></li>
     </ol>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="wrap" aria-labelledby="about-h">
     <div class="about-grid">
-      <div>
-        <h2 id="about-h">About <em>me</em></h2>
-        <dl class="facts">
-          <dt>Shoots on</dt><dd>35mm film &amp; phone</dd>
-          <dt>Cooks</dt><dd>Seasonal, mostly vegetables</dd>
-          <dt>Walks</dt><dd>Canals, woods, anywhere with water</dd>
-        </dl>
-      </div>
-      <div class="about-copy">
-        <p>Hello, I'm Zhahla. This paragraph is a placeholder for your introduction: who you are, what you do day to day, and what draws you to photography and cooking.</p>
-        <p>A second paragraph could say how the two connect. Both are about noticing things: light, texture, the right moment to take something out of the oven.</p>
-        <p>End with what you're working on now or what you'd like to be asked about.</p>
-      </div>
+      <h2 id="about-h">About</h2>
+      <p class="about-copy">Hello, I'm Zhahla. A sentence or two about who you are and what you love to photograph and cook.</p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="wrap contact" aria-labelledby="contact-h">
-    <span class="label">Contact</span>
-    <h2 id="contact-h" style="margin-top:12px">Say hello about a <em>project</em>, a print, or a recipe.</h2>
+    <h2 id="contact-h">Say <em>hello</em></h2>
     <div class="contact-row">
       <span class="email" id="email">hello@yourname.com</span>
       <button class="copy" type="button" id="copy-email">Copy email</button>
     </div>
     <div class="socials">
-      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram (kitchen)</a>
-      <a href="#" target="_blank" rel="noopener">Instagram (photos)</a>
-      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/imnotapicaholic/" target="_blank" rel="noopener">@imnotapicaholic</a>
+      <a href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan</a>
+      <a href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Nosh-e-Jaan</a>
     </div>
   </section>
 </main>
