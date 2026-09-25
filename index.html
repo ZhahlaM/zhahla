@@ -130,8 +130,14 @@
   .f-canal  { grid-column: 1 / span 5; grid-row: 2; }
   .f-bridge { grid-column: 7 / span 6; grid-row: 2; margin-top: clamp(0px, 12vw, 160px); }
   .f-canal button, .f-bridge button { aspect-ratio: 3 / 4; }
+  .f-lighthouse { grid-column: 1 / -1; grid-row: 3; }
+  .f-moss   { grid-column: 1 / span 5; grid-row: 4; }
+  .f-island { grid-column: 7 / span 6; grid-row: 4; align-self: center; }
+  .f-lighthouse button, .f-island button { aspect-ratio: 1125 / 746; }
+  .f-moss button { aspect-ratio: 2 / 3; }
   @media (max-width: 720px) {
-    .f-canal, .f-bridge { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+    .f-canal, .f-bridge, .f-moss, .f-island { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+    .f-lighthouse { grid-row: auto; }
   }
 
   /* ---------- Kitchen ---------- */
@@ -248,6 +254,27 @@
           <img src="images/under-the-bridge.jpg" alt="Canal towpath seen through sticker-covered railings, with warm light on the brick arch of a bridge" width="1500" height="2000" loading="lazy">
         </button>
         <figcaption><span class="title">Under the bridge</span><span class="label">Phone</span></figcaption>
+      </figure>
+
+      <figure class="frame f-lighthouse">
+        <button type="button" aria-label="View Lighthouse at dusk larger">
+          <img src="images/lighthouse.jpg" alt="A lighthouse on top of a white chalk cliff at dusk, the sea and a low sun behind clouds, with a red light leak in the corner" width="1125" height="746" loading="lazy">
+        </button>
+        <figcaption><span class="title">Lighthouse at dusk</span><span class="label">35mm film</span></figcaption>
+      </figure>
+
+      <figure class="frame f-moss">
+        <button type="button" aria-label="View Moss and peel larger">
+          <img src="images/moss-and-peel.jpg" alt="A banana peel on a woodland floor of moss and dry leaves, in front of a moss-covered concrete step" width="750" height="1125" loading="lazy">
+        </button>
+        <figcaption><span class="title">Moss and peel</span><span class="label">Digital</span></figcaption>
+      </figure>
+
+      <figure class="frame f-island">
+        <button type="button" aria-label="View The island larger">
+          <img src="images/island.jpg" alt="A low green island seen across sparkling water, with a small white lighthouse and a ruined stone tower on the horizon" width="1125" height="746" loading="lazy">
+        </button>
+        <figcaption><span class="title">The island</span><span class="label">35mm film</span></figcaption>
       </figure>
     </div>
   </section>
