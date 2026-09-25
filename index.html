@@ -6,7 +6,7 @@
 <title>Zhahla Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=DM+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300..700;1,300..700&family=DM+Mono:wght@400&display=swap">
 <style>
   :root {
     --paper: #f5eee3;
@@ -18,8 +18,8 @@
     --clay-ink: #fbf4ea;
     --clay-soft: #f0dccb;
 
-    --serif-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-    --serif-body: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --font-display: "Karla", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Karla", "Helvetica Neue", Arial, sans-serif;
     --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
     --gutter: clamp(16px, 5vw, 64px);
@@ -57,8 +57,8 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--serif-body);
-    font-size: 1.125rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
@@ -76,7 +76,7 @@
     text-transform: uppercase;
     color: var(--ink-soft);
   }
-  h1, h2, h3 { font-family: var(--serif-display); font-weight: 400; text-wrap: balance; margin: 0; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; }
   h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.05; letter-spacing: -0.01em; }
   h2 em, h1 em { font-style: italic; color: var(--clay); }
   p { margin: 0; }
@@ -86,7 +86,7 @@
     display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
     gap: 12px 32px; padding-block: 28px;
   }
-  .wordmark { font-family: var(--serif-display); font-style: italic; font-size: 1.5rem; text-decoration: none; }
+  .wordmark { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; text-decoration: none; }
   .site-header nav { display: flex; flex-wrap: wrap; gap: 6px 24px; }
   .site-header nav a { font-size: 1rem; text-decoration: none; color: var(--ink-soft); }
   .site-header nav a:hover { color: var(--clay); }
@@ -96,9 +96,8 @@
   .intro h1 {
     font-size: clamp(2.6rem, 7.4vw, 5.75rem);
     line-height: 0.98;
-    letter-spacing: -0.02em;
-    font-weight: 300;
-    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.035em;
+    font-weight: 400;
     max-width: 14ch;
   }
 
@@ -152,7 +151,7 @@
     display: inline-flex; align-items: center; gap: 10px;
     padding: 14px 22px; border-radius: 999px;
     background: var(--clay); color: var(--clay-ink); text-decoration: none;
-    font-family: var(--serif-body); font-size: 1.05rem; font-weight: 500;
+    font-family: var(--font-body); font-size: 1.05rem; font-weight: 500;
     border: 0; cursor: pointer;
   }
   .btn:hover { color: var(--clay-ink); filter: brightness(1.07); }
@@ -177,7 +176,7 @@
   /* ---------- Contact ---------- */
   .contact-row { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; margin-top: 32px; }
   .email {
-    font-family: var(--serif-display); font-size: clamp(1.4rem, 3.4vw, 2.25rem); font-style: italic;
+    font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 2.25rem); font-style: italic;
     user-select: all; overflow-wrap: anywhere;
   }
   .copy { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
