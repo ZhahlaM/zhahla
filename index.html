@@ -135,8 +135,11 @@
   .f-island { grid-column: 7 / span 6; grid-row: 4; align-self: center; }
   .f-lighthouse button, .f-island button { aspect-ratio: 1125 / 746; }
   .f-moss button { aspect-ratio: 2 / 3; }
+  .f-tree    { grid-column: 2 / span 5; grid-row: 5; }
+  .f-passage { grid-column: 8 / span 5; grid-row: 5; margin-top: clamp(0px, 10vw, 128px); }
+  .f-tree button, .f-passage button { aspect-ratio: 745 / 1125; }
   @media (max-width: 720px) {
-    .f-canal, .f-bridge, .f-moss, .f-island { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+    .f-canal, .f-bridge, .f-moss, .f-island, .f-tree, .f-passage { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
     .f-lighthouse { grid-row: auto; }
   }
 
@@ -275,6 +278,20 @@
           <img src="images/island.jpg" alt="A low green island seen across sparkling water, with a small white lighthouse and a ruined stone tower on the horizon" width="1125" height="746" loading="lazy">
         </button>
         <figcaption><span class="title">The island</span><span class="label">35mm film</span></figcaption>
+      </figure>
+
+      <figure class="frame f-tree">
+        <button type="button" aria-label="View The old tree larger">
+          <img src="images/old-tree.jpg" alt="Black and white photo of a large, sprawling tree in front of a building and a railing, sunlight coming through its leaves" width="745" height="1125" loading="lazy">
+        </button>
+        <figcaption><span class="title">The old tree</span><span class="label">35mm B&amp;W film</span></figcaption>
+      </figure>
+
+      <figure class="frame f-passage">
+        <button type="button" aria-label="View Passage larger">
+          <img src="images/passage.jpg" alt="Black and white photo of a shaded passage under a building, opening onto a bright courtyard where a figure in white walks away" width="745" height="1125" loading="lazy">
+        </button>
+        <figcaption><span class="title">Passage</span><span class="label">35mm B&amp;W film</span></figcaption>
       </figure>
     </div>
   </section>
