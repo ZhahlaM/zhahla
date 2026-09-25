@@ -137,6 +137,14 @@
 
   /* ---------- Kitchen ---------- */
   .kitchen { background: var(--clay-soft); border-top: 0 !important; }
+  .kitchen-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+  @media (max-width: 800px) { .kitchen-grid { grid-template-columns: 1fr; } }
+  .dish { margin: 0; }
+  .dish a { display: block; overflow: hidden; border-radius: 3px; }
+  .dish img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .dish a:hover img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) { .dish img { transition: none; } .dish a:hover img { transform: none; } }
+  .dish figcaption { margin-top: 10px; font-style: italic; font-size: 1rem; color: var(--ink-soft); }
   .kitchen h2 { font-size: clamp(2.6rem, 7vw, 5rem); }
   .kitchen p.lede { margin-top: 12px; font-size: 1.2rem; color: var(--ink-soft); }
   .kitchen-links { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 32px; align-items: center; }
@@ -247,14 +255,22 @@
 
   <!-- KITCHEN -->
   <section id="kitchen" class="kitchen" aria-labelledby="kitchen-h">
-    <div class="wrap">
-      <span class="label">The kitchen</span>
-      <h2 id="kitchen-h" style="margin-top:12px"><em>Nosh-e-Jaan</em></h2>
-      <p class="lede">My cookbook.</p>
-      <div class="kitchen-links">
-        <a class="btn" href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Open the cookbook <span aria-hidden="true">→</span></a>
-        <a class="btn btn-quiet" href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan <span aria-hidden="true">↗</span></a>
+    <div class="wrap kitchen-grid">
+      <div>
+        <span class="label">The kitchen</span>
+        <h2 id="kitchen-h" style="margin-top:12px"><em>Noosh e jan</em></h2>
+        <p class="lede">My cookbook.</p>
+        <div class="kitchen-links">
+          <a class="btn" href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Open the cookbook <span aria-hidden="true">→</span></a>
+          <a class="btn btn-quiet" href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
+      <figure class="dish">
+        <a href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">
+          <img src="images/dips-and-bread.jpg" alt="Baba ganoush with pine nuts and sumac, beetroot and walnut dip, and a torn loaf of bread" width="1600" height="1067" loading="lazy">
+        </a>
+        <figcaption>Baba ganoush, beetroot &amp; walnut dip, warm bread</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -288,7 +304,7 @@
     <div class="socials">
       <a href="https://www.instagram.com/imnotapicaholic/" target="_blank" rel="noopener">@imnotapicaholic</a>
       <a href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan</a>
-      <a href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Nosh-e-Jaan</a>
+      <a href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Noosh e jan</a>
     </div>
   </section>
 </main>
