@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zhahla Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300..700;1,300..700&family=DM+Mono:wght@400&display=swap">
+<style>
+  :root {
+    --paper: #f5eee3;
+    --paper-deep: #ece2d2;
+    --ink: #2a1f19;
+    --ink-soft: #6f5e51;
+    --rule: #d9cab5;
+    --clay: #b0532c;
+    --clay-ink: #fbf4ea;
+    --clay-soft: #f0dccb;
+
+    --font-display: "Karla", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Karla", "Helvetica Neue", Arial, sans-serif;
+    --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+    --gutter: clamp(16px, 5vw, 64px);
+    --max: 1180px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #1d1612;
+      --paper-deep: #271e18;
+      --ink: #efe4d4;
+      --ink-soft: #b2a08f;
+      --rule: #3d3129;
+      --clay: #d9774c;
+      --clay-ink: #1d1612;
+      --clay-soft: #3a2519;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #1d1612;
+    --paper-deep: #271e18;
+    --ink: #efe4d4;
+    --ink-soft: #b2a08f;
+    --rule: #3d3129;
+    --clay: #d9774c;
+    --clay-ink: #1d1612;
+    --clay-soft: #3a2519;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration-color: var(--clay); text-underline-offset: 0.2em; }
+  a:hover { color: var(--clay); }
+  :focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; }
+  h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.05; letter-spacing: -0.01em; }
+  h2 em, h1 em { font-style: italic; color: var(--clay); }
+  p { margin: 0; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 12px 32px; padding-block: 28px;
+  }
+  .wordmark { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; text-decoration: none; }
+  .site-header nav { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+  .site-header nav a { font-size: 1rem; text-decoration: none; color: var(--ink-soft); }
+  .site-header nav a:hover { color: var(--clay); }
+
+  /* ---------- Intro ---------- */
+  .intro { padding-block: clamp(40px, 8vw, 104px) clamp(40px, 6vw, 72px); border-bottom: 1px solid var(--rule); }
+  .intro h1 {
+    font-size: clamp(2.6rem, 7.4vw, 5.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 400;
+    max-width: 14ch;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding-block: clamp(56px, 9vw, 112px); }
+  section + section { border-top: 1px solid var(--rule); }
+  .section-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px;
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+
+  /* ---------- Photography: editorial grid ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(28px, 4vw, 48px) clamp(16px, 2.5vw, 32px); }
+  .frame { margin: 0; }
+  .frame button {
+    all: unset; display: block; width: 100%; cursor: zoom-in; overflow: hidden; background: var(--paper-deep);
+  }
+  .frame button:focus-visible { outline: 2px solid var(--clay); outline-offset: 4px; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .frame button:hover img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) { .frame img { transition: none; } .frame button:hover img { transform: none; } }
+  .frame figcaption {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px;
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule);
+  }
+  .frame figcaption .title { font-style: italic; font-size: 1.05rem; }
+
+  .f-wood   { grid-column: 1 / -1; }
+  .f-wood button { aspect-ratio: 1125 / 746; }
+  .f-canal  { grid-column: 1 / span 5; grid-row: 2; }
+  .f-bridge { grid-column: 7 / span 6; grid-row: 2; margin-top: clamp(0px, 12vw, 160px); }
+  .f-canal button, .f-bridge button { aspect-ratio: 3 / 4; }
+  @media (max-width: 720px) {
+    .f-canal, .f-bridge { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+  }
+
+  /* ---------- Kitchen ---------- */
+  .kitchen { background: var(--clay-soft); border-top: 0 !important; }
+  .kitchen-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+  @media (max-width: 800px) { .kitchen-grid { grid-template-columns: 1fr; } }
+  .dish { margin: 0; }
+  .dish a { display: block; overflow: hidden; border-radius: 3px; }
+  .dish img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .dish a:hover img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) { .dish img { transition: none; } .dish a:hover img { transform: none; } }
+  .dish figcaption { margin-top: 10px; font-style: italic; font-size: 1rem; color: var(--ink-soft); }
+  .kitchen h2 { font-size: clamp(2.6rem, 7vw, 5rem); }
+  .kitchen p.lede { margin-top: 12px; font-size: 1.2rem; color: var(--ink-soft); }
+  .kitchen-links { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 32px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px;
+    background: var(--clay); color: var(--clay-ink); text-decoration: none;
+    font-family: var(--font-body); font-size: 1.05rem; font-weight: 500;
+    border: 0; cursor: pointer;
+  }
+  .btn:hover { color: var(--clay-ink); filter: brightness(1.07); }
+  .btn-quiet { background: transparent; color: var(--ink); padding-inline: 4px; }
+  .btn-quiet:hover { color: var(--clay); filter: none; }
+
+  /* ---------- Work ---------- */
+  .work-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .work-list li {
+    display: grid; grid-template-columns: 9rem minmax(0, 1fr) auto; gap: 4px 32px;
+    padding-block: 22px; border-bottom: 1px solid var(--rule); align-items: baseline;
+  }
+  .work-list .when { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .work-list h3 { font-size: 1.5rem; line-height: 1.2; }
+  .work-list .org { font-style: italic; color: var(--ink-soft); }
+  @media (max-width: 760px) { .work-list li { grid-template-columns: 1fr; } }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; align-items: baseline; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(32px, 6vw, 96px); }
+  @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-copy { max-width: 52ch; font-size: 1.3rem; line-height: 1.55; }
+  /* ---------- Contact ---------- */
+  .contact-row { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; margin-top: 32px; }
+  .email {
+    font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 2.25rem); font-style: italic;
+    user-select: all; overflow-wrap: anywhere;
+  }
+  .copy { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+    background: none; border: 1px solid var(--rule); color: var(--ink); padding: 8px 14px; border-radius: 999px; cursor: pointer; }
+  .copy:hover { border-color: var(--clay); color: var(--clay); }
+  .socials { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; }
+
+  footer { padding-block: 32px 48px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+  /* ---------- Lightbox ---------- */
+  dialog.lightbox {
+    border: 0; padding: 0; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh;
+    background: rgba(24, 17, 13, 0.94); color: #efe4d4;
+  }
+  dialog.lightbox::backdrop { background: rgba(24, 17, 13, 0.94); }
+  .lb-inner { height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 16px; padding: max(24px, env(safe-area-inset-top, 0px)) 16px max(20px, env(safe-area-inset-bottom, 0px)); }
+  .lb-inner img { max-height: 100%; max-width: 100%; margin: auto; object-fit: contain; }
+  .lb-bar { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; align-items: baseline; font-style: italic; }
+  .lb-bar .label { color: #b2a08f; font-style: normal; }
+  .lb-btn { all: unset; cursor: pointer; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: #efe4d4; padding: 6px 10px; }
+  .lb-btn:hover { color: #d9774c; }
+  .lb-btn:focus-visible { outline: 2px solid #d9774c; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site-header">
+    <a class="wordmark" href="#top" id="top">Zhahla</a>
+    <nav aria-label="Sections">
+      <a href="#photography">Photography</a>
+      <a href="#kitchen">Kitchen</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <h1>Photographs, food, and <em>the work in between.</em></h1>
+  </div>
+</div>
+
+<main>
+  <!-- PHOTOGRAPHY -->
+  <section id="photography" class="wrap" aria-labelledby="photo-h">
+    <div class="section-head">
+      <h2 id="photo-h">Photography</h2>
+      <a class="label" href="https://www.instagram.com/imnotapicaholic/" target="_blank" rel="noopener">@imnotapicaholic ↗</a>
+    </div>
+
+    <div class="gallery">
+      <figure class="frame f-wood">
+        <button type="button" aria-label="View Woodland larger">
+          <img src="images/woodland.jpg" alt="Sunlit clearing in an old oak wood, a pale trunk leaning across long green grass and small tree stumps" width="1125" height="746">
+        </button>
+        <figcaption><span class="title">Woodland</span><span class="label">35mm film</span></figcaption>
+      </figure>
+
+      <figure class="frame f-canal">
+        <button type="button" aria-label="View Reflections larger">
+          <img src="images/canal-reflection.jpg" alt="A bicycle reflected in dark canal water beside a moored boat, with autumn leaves floating on the surface" width="1500" height="2000" loading="lazy">
+        </button>
+        <figcaption><span class="title">Reflections</span><span class="label">Phone</span></figcaption>
+      </figure>
+
+      <figure class="frame f-bridge">
+        <button type="button" aria-label="View Under the bridge larger">
+          <img src="images/under-the-bridge.jpg" alt="Canal towpath seen through sticker-covered railings, with warm light on the brick arch of a bridge" width="1500" height="2000" loading="lazy">
+        </button>
+        <figcaption><span class="title">Under the bridge</span><span class="label">Phone</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- KITCHEN -->
+  <section id="kitchen" class="kitchen" aria-labelledby="kitchen-h">
+    <div class="wrap kitchen-grid">
+      <div>
+        <span class="label">The kitchen</span>
+        <h2 id="kitchen-h" style="margin-top:12px"><em>Noosh e jan</em></h2>
+        <p class="lede">My cookbook.</p>
+        <div class="kitchen-links">
+          <a class="btn" href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Open the cookbook <span aria-hidden="true">→</span></a>
+          <a class="btn btn-quiet" href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <figure class="dish">
+        <a href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">
+          <img src="images/dips-and-bread.jpg" alt="Baba ganoush with pine nuts and sumac, beetroot and walnut dip, and a torn loaf of bread" width="1600" height="1067" loading="lazy">
+        </a>
+        <figcaption>Baba ganoush, beetroot &amp; walnut dip, warm bread</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="wrap" aria-labelledby="work-h">
+    <div class="section-head">
+      <h2 id="work-h">Work</h2>
+    </div>
+    <ol class="work-list">
+      <li><span class="when">2025 – now</span><h3>Role or project title</h3><span class="org">Organisation</span></li>
+      <li><span class="when">2023 – 2025</span><h3>Another role</h3><span class="org">Organisation</span></li>
+      <li><span class="when">2022</span><h3>Side project</h3><span class="org">Independent</span></li>
+    </ol>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap" aria-labelledby="about-h">
+    <div class="about-grid">
+      <h2 id="about-h">About</h2>
+      <p class="about-copy">Hello, I'm Zhahla. A sentence or two about who you are and what you love to photograph and cook.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Say <em>hello</em></h2>
+    <div class="contact-row">
+      <span class="email" id="email">mzhahla@gmail.com</span>
+      <button class="copy" type="button" id="copy-email">Copy email</button>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/imnotapicaholic/" target="_blank" rel="noopener">@imnotapicaholic</a>
+      <a href="https://www.instagram.com/noosh_i_jan/" target="_blank" rel="noopener">@noosh_i_jan</a>
+      <a href="https://zhahlam.github.io/nosh-e-jaan/" target="_blank" rel="noopener">Noosh e jan</a>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span class="label">© 2026 Zhahla</span>
+    <a class="label" href="#top">Back to top ↑</a>
+  </footer>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photograph viewer">
+  <div class="lb-inner">
+    <img id="lb-img" src="" alt="">
+    <div class="lb-bar">
+      <button class="lb-btn" type="button" id="lb-prev">← Prev</button>
+      <span id="lb-title"></span>
+      <span class="label" id="lb-meta"></span>
+      <button class="lb-btn" type="button" id="lb-next">Next →</button>
+      <button class="lb-btn" type="button" id="lb-close">Close ✕</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  (function () {
+    var frames = Array.prototype.slice.call(document.querySelectorAll('.frame'));
+    var dlg = document.getElementById('lightbox');
+    var img = document.getElementById('lb-img');
+    var title = document.getElementById('lb-title');
+    var meta = document.getElementById('lb-meta');
+    var current = 0;
+
+    function show(i) {
+      current = (i + frames.length) % frames.length;
+      var f = frames[current];
+      var src = f.querySelector('img');
+      img.src = src.getAttribute('src');
+      img.alt = src.alt;
+      title.textContent = f.querySelector('.title').textContent;
+      meta.textContent = f.querySelector('figcaption .label').textContent;
+    }
+    frames.forEach(function (f, i) {
+      f.querySelector('button').addEventListener('click', function () {
+        show(i);
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+      });
+    });
+    document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
+    document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
+    document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.classList.contains('lb-inner')) dlg.close(); });
+    dlg.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    var copyBtn = document.getElementById('copy-email');
+    copyBtn.addEventListener('click', function () {
+      var text = document.getElementById('email').textContent;
+      function done() { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy email'; }, 1800); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        copyBtn.textContent = 'Selected, press Ctrl+C';
+      }
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
