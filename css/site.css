@@ -160,15 +160,14 @@ section + section { border-top: 1px solid var(--rule); }
 .btn-quiet { background: transparent; color: var(--ink); padding-inline: 4px; }
 .btn-quiet:hover { color: var(--clay); filter: none; }
 
-/* ---------- Work ---------- */
+/* ---------- Projects ---------- */
 .work-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
 .work-list li {
-  display: grid; grid-template-columns: 9rem minmax(0, 1fr) auto; gap: 4px 32px;
-  padding-block: 22px; border-bottom: 1px solid var(--rule); align-items: baseline;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 6px 32px;
+  padding-block: 24px; border-bottom: 1px solid var(--rule); align-items: baseline;
 }
-.work-list .when { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .work-list h3 { font-size: 1.5rem; line-height: 1.2; }
-.work-list .org { font-style: italic; color: var(--ink-soft); }
+.work-list p { color: var(--ink-soft); max-width: 48ch; }
 @media (max-width: 760px) { .work-list li { grid-template-columns: 1fr; } }
 
 /* ---------- About ---------- */
