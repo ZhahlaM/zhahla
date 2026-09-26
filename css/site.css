@@ -130,10 +130,7 @@ section + section { border-top: 1px solid var(--rule); }
 .page-intro { padding-block: clamp(32px, 6vw, 80px) clamp(32px, 5vw, 56px); border-bottom: 1px solid var(--rule);
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; }
 .page-intro h1 { font-size: clamp(2.6rem, 7.4vw, 5.75rem); line-height: 0.98; letter-spacing: -0.035em; }
-.set { padding-block: clamp(40px, 6vw, 72px); }
-.set + .set { border-top: 1px solid var(--rule); }
-.set-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: clamp(20px, 3vw, 32px); }
-.set-head h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
+.photo-page { padding-block: clamp(40px, 6vw, 72px); }
 .site-header nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--clay); }
 
 /* ---------- Kitchen ---------- */
