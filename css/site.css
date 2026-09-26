@@ -168,6 +168,9 @@ section + section { border-top: 1px solid var(--rule); }
 }
 .work-list h3 { font-size: 1.5rem; line-height: 1.2; }
 .work-list p { color: var(--ink-soft); max-width: 48ch; }
+.work-list h3 a { text-decoration: none; }
+.work-list h3 a:hover { color: var(--clay); }
+.work-list h3 .arrow { color: var(--clay); font-size: 0.8em; }
 @media (max-width: 760px) { .work-list li { grid-template-columns: 1fr; } }
 
 /* ---------- About ---------- */
